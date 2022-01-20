@@ -6,14 +6,14 @@ import { Router, useRouter } from "next/router";
 const Home: NextPage = () => {
   const router = useRouter();
 
-  const { data: session } = useSession({
+  const { status, data: session } = useSession({
     required: true,
     onUnauthenticated() {
       router.replace("/api/auth/signin");
     },
   });
 
-  return (
+  return status === "authenticated" ? (
     <>
       <Link href={"/protected"}>
         <a>Protected Page</a>
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       Signed in as {session?.user?.email} <br /> <br />
       <button onClick={() => signOut()}>Sign out</button>
     </>
-  );
+  ) : null;
 };
 
 export default Home;
