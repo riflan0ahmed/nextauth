@@ -6,7 +6,12 @@ import { useEffect } from "react";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const { status, data: session } = useSession({ required: true });
+  const { status, data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      console.log("user is not unauthenticated");
+    },
+  });
 
   // const { status, data: session } = useSession({
   //   required: true,
