@@ -1,17 +1,19 @@
-import { useSession } from "next-auth/react";
 import Link from "next/link";
-import Router from "next/router";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 export default function Admin() {
+  const router = useRouter();
+
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
-      Router.replace("/api/auth/signin");
+      router.replace("/api/auth/signin");
     },
   });
 
   return status === "authenticated" ? (
-    <div className=" bg-black h-screen text-red-500">
+    <div className="h-screen text-red-500 bg-black ">
       <Link href={"/"}>
         <a>Home Page</a>
       </Link>
