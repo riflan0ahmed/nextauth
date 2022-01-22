@@ -24,7 +24,8 @@ export default NextAuth({
           return {
             id: 2,
             username: "riflan0ahmed@gmail.com",
-            passsword: "123456",
+            email: "riflan0ahmed@gmail.com",
+            password: "123456",
           };
         }
 
