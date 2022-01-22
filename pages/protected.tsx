@@ -11,12 +11,12 @@ export default function Admin() {
   });
 
   return status === "authenticated" ? (
-    <>
+    <div className=" bg-black">
       <Link href={"/"}>
         <a>Home Page</a>
       </Link>
       <br />
       User is logged in
-    </>
+    </div>
   ) : null;
 }
