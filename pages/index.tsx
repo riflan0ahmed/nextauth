@@ -15,27 +15,27 @@ const Home: NextPage = () => {
   //   },
   // });
 
-  // return status === "authenticated" ? (
-  //   <>
-  //     <Link href={"/protected"}>
-  //       <a>Protected Page</a>
-  //     </Link>
-  //     <br />
-  //     Signed in as {session?.user?.email} <br /> <br />
-  //     <button onClick={() => signOut()}>Sign out</button>
-  //   </>
-  // ) : null;
-
-  return (
-    <div className="h-screen bg-gray-500">
+  return status === "authenticated" ? (
+    <>
       <Link href={"/protected"}>
-        <a className="text-2xl">Protected Page</a>
+        <a>Protected Page</a>
       </Link>
       <br />
       Signed in as {session?.user?.email} <br /> <br />
       <button onClick={() => signOut()}>Sign out</button>
-    </div>
-  );
+    </>
+  ) : null;
+
+  // return (
+  //   <div className="h-screen bg-gray-500">
+  //     <Link href={"/protected"}>
+  //       <a className="text-2xl">Protected Page</a>
+  //     </Link>
+  //     <br />
+  //     Signed in as {session?.user?.email} <br /> <br />
+  //     <button onClick={() => signOut()}>Sign out</button>
+  //   </div>
+  // );
 };
 
 export default Home;
