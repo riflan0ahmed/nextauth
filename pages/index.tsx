@@ -5,15 +5,27 @@ import { Router, useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const router = useRouter();
+  const { status, data: session } = useSession();
 
-  const { status, data: session } = useSession({
-    required: true,
-    onUnauthenticated() {
-      router.replace("/api/auth/signin");
-    },
-  });
+  // const { status, data: session } = useSession({
+  //   required: true,
+  //   onUnauthenticated() {
+  //     router.replace("/api/auth/signin");
+  //   },
+  // });
 
-  return status === "authenticated" ? (
+  // return status === "authenticated" ? (
+  //   <>
+  //     <Link href={"/protected"}>
+  //       <a>Protected Page</a>
+  //     </Link>
+  //     <br />
+  //     Signed in as {session?.user?.email} <br /> <br />
+  //     <button onClick={() => signOut()}>Sign out</button>
+  //   </>
+  // ) : null;
+
+  return (
     <>
       <Link href={"/protected"}>
         <a>Protected Page</a>
@@ -22,7 +34,7 @@ const Home: NextPage = () => {
       Signed in as {session?.user?.email} <br /> <br />
       <button onClick={() => signOut()}>Sign out</button>
     </>
-  ) : null;
+  );
 };
 
 export default Home;
