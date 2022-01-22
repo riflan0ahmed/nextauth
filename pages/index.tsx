@@ -10,6 +10,7 @@ const Home: NextPage = () => {
     required: true,
     onUnauthenticated() {
       console.log("user is not unauthenticated");
+      router.replace("/api/auth/signin");
     },
   });
 
