@@ -11,7 +11,7 @@ export default function Admin() {
   });
 
   return status === "authenticated" ? (
-    <div className=" bg-black">
+    <div className=" bg-black h-screen text-red-500">
       <Link href={"/"}>
         <a>Home Page</a>
       </Link>
